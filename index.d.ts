@@ -96,6 +96,12 @@ interface RequestContext {
   user?: object;
 
   /**
+   * An object containing all the context keys retreived from the tokenSet.
+   * Keys are specified in {@link ConfigParams.contextKeys contextKeys}.
+   */
+  context?: object;
+
+  /**
    * Fetches the OIDC userinfo response.
    *
    * ```js
@@ -387,6 +393,12 @@ interface ConfigParams {
    * String value for the client's authentication method. Default is `none` when using response_type='id_token', otherwise `client_secret_basic`.
    */
   clientAuthMethod?: string;
+  
+  /**
+   * Array of custom keys to be extracted from the tokenSet.
+   * 
+   */
+  contextKeys?: string[];
 }
 
 /**

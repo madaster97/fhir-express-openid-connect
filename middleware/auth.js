@@ -108,6 +108,19 @@ module.exports = function (params) {
           // TODO:?
           req.openidState = decodeState(expectedState);
 
+          // Collect context keys
+          let context = {};
+          if (!!config.contextKeys) {
+            Object.keys(config.contextKeys).forEach(key => {
+              if (!!tokenSet[key]) {
+                context[key] = tokenSet[key];
+              }
+            })
+          } else {
+            // Erase so key won't set below
+            context = undefined;
+          }
+
           // intentional clone of the properties on tokenSet
           Object.assign(req[config.session.name], {
             id_token: tokenSet.id_token,
@@ -115,6 +128,7 @@ module.exports = function (params) {
             refresh_token: tokenSet.refresh_token,
             token_type: tokenSet.token_type,
             expires_at: tokenSet.expires_at,
+            context
           });
 
           attemptSilentLogin.resumeSilentLogin(req, res);
