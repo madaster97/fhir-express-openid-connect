@@ -93,12 +93,12 @@ module.exports = function (params) {
               10
             );
             const code_verifier = transient.getOnce('code_verifier', req, res);
-            const nonce = transient.getOnce('nonce', req, res);
+            // const nonce = transient.getOnce('nonce', req, res);
 
             tokenSet = await client.callback(redirectUri, callbackParams, {
               max_age,
               code_verifier,
-              nonce,
+              // nonce,
               state: expectedState,
             });
           } catch (err) {
