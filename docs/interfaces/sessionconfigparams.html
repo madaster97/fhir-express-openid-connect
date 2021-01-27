@@ -2727,6 +2727,9 @@ img {
 			<a href="configparams.html" class="tsd-kind-icon">Config<wbr>Params</a>
 		</li>
 		<li class=" tsd-kind-interface">
+			<a href="cookieconfigparams.html" class="tsd-kind-icon">Cookie<wbr>Config<wbr>Params</a>
+		</li>
+		<li class=" tsd-kind-interface">
 			<a href="loginoptions.html" class="tsd-kind-icon">Login<wbr>Options</a>
 		</li>
 		<li class=" tsd-kind-interface">
@@ -2744,6 +2747,9 @@ img {
 		<li class=" tsd-kind-interface">
 			<a href="responsecontext.html" class="tsd-kind-icon">Response<wbr>Context</a>
 		</li>
+		<li class=" tsd-kind-interface">
+			<a href="session.html" class="tsd-kind-icon">Session</a>
+		</li>
 		<li class="current tsd-kind-interface">
 			<a href="sessionconfigparams.html" class="tsd-kind-icon">Session<wbr>Config<wbr>Params</a>
 			<ul>
@@ -2751,31 +2757,16 @@ img {
 					<a href="sessionconfigparams.html#absoluteduration" class="tsd-kind-icon">absolute<wbr>Duration</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="sessionconfigparams.html#domain" class="tsd-kind-icon">domain</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="sessionconfigparams.html#httponly" class="tsd-kind-icon">http<wbr>Only</a>
+					<a href="sessionconfigparams.html#cookie" class="tsd-kind-icon">cookie</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="sessionconfigparams.html#name" class="tsd-kind-icon">name</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="sessionconfigparams.html#path" class="tsd-kind-icon">path</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="sessionconfigparams.html#rolling" class="tsd-kind-icon">rolling</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-interface">
 					<a href="sessionconfigparams.html#rollingduration" class="tsd-kind-icon">rolling<wbr>Duration</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="sessionconfigparams.html#samesite" class="tsd-kind-icon">same<wbr>Site</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="sessionconfigparams.html#secure" class="tsd-kind-icon">secure</a>
-				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-interface">
-					<a href="sessionconfigparams.html#transient" class="tsd-kind-icon">transient</a>
 				</li>
 			</ul>
 		</li>
@@ -2824,15 +2815,10 @@ img {
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#absoluteduration" class="tsd-kind-icon">absolute<wbr>Duration</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#domain" class="tsd-kind-icon">domain</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#httponly" class="tsd-kind-icon">http<wbr>Only</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#cookie" class="tsd-kind-icon">cookie</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#name" class="tsd-kind-icon">name</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#path" class="tsd-kind-icon">path</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#rolling" class="tsd-kind-icon">rolling</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#rollingduration" class="tsd-kind-icon">rolling<wbr>Duration</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#samesite" class="tsd-kind-icon">same<wbr>Site</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#secure" class="tsd-kind-icon">secure</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-interface"><a href="sessionconfigparams.html#transient" class="tsd-kind-icon">transient</a></li>
 						</ul>
 					</section>
 				</div>
@@ -2846,7 +2832,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">absolute<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c13cfd2/index.d.ts#L420">index.d.ts:420</a></li>
+						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c4b6ab9/index.d.ts#L459">index.d.ts:459</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2859,35 +2845,17 @@ img {
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="domain" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> domain</h3>
-				<div class="tsd-signature tsd-kind-icon">domain<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<a name="cookie" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagOptional">Optional</span> cookie</h3>
+				<div class="tsd-signature tsd-kind-icon">cookie<span class="tsd-signature-symbol">:</span> <a href="cookieconfigparams.html" class="tsd-signature-type">CookieConfigParams</a></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c13cfd2/index.d.ts#L426">index.d.ts:426</a></li>
+						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c4b6ab9/index.d.ts#L464">index.d.ts:464</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Domain name for the cookie.
-						Passed to the <a href="https://expressjs.com/en/api.html#res.cookie">Response cookie</a> as <code>domain</code></p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="httponly" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> http<wbr>Only</h3>
-				<div class="tsd-signature tsd-kind-icon">http<wbr>Only<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c13cfd2/index.d.ts#L445">index.d.ts:445</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Flags the cookie to be accessible only by the web server.
-							Passed to the <a href="https://expressjs.com/en/api.html#res.cookie">Response cookie</a> as <code>httponly</code>.
-						Defaults to <code>true</code>.</p>
+						<p>Configuration parameters used for the session cookie and transient cookies.</p>
 					</div>
 				</div>
 			</section>
@@ -2897,7 +2865,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c13cfd2/index.d.ts#L396">index.d.ts:396</a></li>
+						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c4b6ab9/index.d.ts#L435">index.d.ts:435</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2909,28 +2877,12 @@ img {
 				</div>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="path" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> path</h3>
-				<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c13cfd2/index.d.ts#L432">index.d.ts:432</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Path for the cookie.
-						Passed to the <a href="https://expressjs.com/en/api.html#res.cookie">Response cookie</a> as <code>path</code></p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 				<a name="rolling" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagOptional">Optional</span> rolling</h3>
 				<div class="tsd-signature tsd-kind-icon">rolling<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c13cfd2/index.d.ts#L405">index.d.ts:405</a></li>
+						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c4b6ab9/index.d.ts#L444">index.d.ts:444</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2949,7 +2901,7 @@ img {
 				<div class="tsd-signature tsd-kind-icon">rolling<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c13cfd2/index.d.ts#L412">index.d.ts:412</a></li>
+						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c4b6ab9/index.d.ts#L451">index.d.ts:451</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -2957,56 +2909,6 @@ img {
 						<p>Integer value, in seconds, for application session rolling duration.
 							The amount of time for which the user must be idle for then to be logged out.
 						Default is 86400 seconds (1 day).</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="samesite" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> same<wbr>Site</h3>
-				<div class="tsd-signature tsd-kind-icon">same<wbr>Site<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c13cfd2/index.d.ts#L459">index.d.ts:459</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Value of the SameSite Set-Cookie attribute.
-							Passed to the <a href="https://expressjs.com/en/api.html#res.cookie">Response cookie</a> as <code>samesite</code>.
-						Defaults to &quot;Lax&quot; but will be adjusted based on {@link AuthorizationParameters.response_type}.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="secure" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> secure</h3>
-				<div class="tsd-signature tsd-kind-icon">secure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c13cfd2/index.d.ts#L452">index.d.ts:452</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Marks the cookie to be used over secure channels only.
-							Passed to the <a href="https://expressjs.com/en/api.html#res.cookie">Response cookie</a> as <code>secure</code>.
-						Defaults to {@link Request.secure}.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-				<a name="transient" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagOptional">Optional</span> transient</h3>
-				<div class="tsd-signature tsd-kind-icon">transient<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/auth0/express-openid-connect/blob/c13cfd2/index.d.ts#L438">index.d.ts:438</a></li>
-					</ul>
-				</aside>
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Set to true to use a transient cookie (cookie without an explicit expiration).
-						Default is <code>false</code></p>
 					</div>
 				</div>
 			</section>

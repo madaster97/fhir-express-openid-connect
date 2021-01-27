@@ -83,56 +83,42 @@ module.exports = function (params) {
         try {
           const redirectUri = res.oidc.getRedirectUri();
 
-          let expectedState;
-          let tokenSet;
+          let session;
+
           try {
             const callbackParams = client.callbackParams(req);
-            expectedState = transient.getOnce('state', req, res);
-            const max_age = parseInt(
-              transient.getOnce('max_age', req, res),
-              10
+            const authVerification = transient.getOnce(
+              'auth_verification',
+              req,
+              res
             );
-            const code_verifier = transient.getOnce('code_verifier', req, res);
-            // const nonce = transient.getOnce('nonce', req, res);
 
-            tokenSet = await client.callback(redirectUri, callbackParams, {
+            const { max_age, code_verifier, nonce, state } = authVerification
+              ? JSON.parse(authVerification)
+              : {};
+
+            session = await client.callback(redirectUri, callbackParams, {
               max_age,
               code_verifier,
-              // nonce,
-              state: expectedState,
+              nonce,
+              state,
             });
+
+            req.openidState = decodeState(state);
           } catch (err) {
             throw createError.BadRequest(err.message);
           }
 
-          // TODO:?
-          req.openidState = decodeState(expectedState);
-
-          // Collect context keys
-          let context = {};
-          if (!!config.contextKeys) {
-            config.contextKeys.forEach((key) => {
-              if (!!tokenSet[key]) {
-                context[key] = tokenSet[key];
-              }
-            });
-          } else {
-            // Erase so key won't set below
-            context = undefined;
+          if (config.afterCallback) {
+            session = await config.afterCallback(
+              req,
+              res,
+              Object.assign({}, session), // Remove non-enumerable methods from the TokenSet
+              req.openidState
+            );
           }
 
-          debug('Context extracted: %o', context);
-
-          // intentional clone of the properties on tokenSet
-          Object.assign(req[config.session.name], {
-            id_token: tokenSet.id_token,
-            access_token: tokenSet.access_token,
-            refresh_token: tokenSet.refresh_token,
-            token_type: tokenSet.token_type,
-            expires_at: tokenSet.expires_at,
-            context,
-          });
-
+          Object.assign(req[config.session.name], session);
           attemptSilentLogin.resumeSilentLogin(req, res);
 
           next();
