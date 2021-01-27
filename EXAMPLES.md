@@ -201,3 +201,37 @@ app.get(
     res.send(`Hello ${req.oidc.user.sub}, this is the payroll section.`)
 );
 ```
+
+## 7. Logout from Identity Provider
+
+When using an IDP, such as Auth0, the default configuration will only log the user out of your application session.  When the user logs in again, they will be automatically logged back in to the IDP session.  To have the user additionally logged out of the IDP session you will need to add `idpLogout: true` to the middleware configuration.
+
+```js
+const { auth } = require('express-openid-connect');
+
+app.use(
+  auth({
+    idpLogout: true,
+    // auth0Logout: true // if using custom domain with Auth0
+  })
+);
+```
+
+## 8. Validate Claims from an ID token before logging a user in
+
+The `afterCallback` hook can be used to do validation checks on claims after the ID token has been received in the callback phase.
+
+```js
+app.use(
+  auth({
+    afterCallback: (req, res, session) => {
+      const claims = jose.JWT.decode(session.id_token); // using jose library to decode JWT
+      if (claims.org_id !== 'Required Organization') {
+        throw new Error('User is not a part of the Required Organization');
+      }
+      return session;
+    }
+  })
+);
+
+```
