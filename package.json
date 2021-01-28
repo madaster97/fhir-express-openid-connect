@@ -1,10 +1,10 @@
 {
-  "name": "express-openid-connect",
+  "name": "@madaster97/fhir-express-openid-connect",
   "version": "2.2.1",
   "description": "Express middleware to protect web applications using OpenID Connect.",
-  "homepage": "https://github.com/auth0/express-openid-connect",
+  "homepage": "https://github.com/madaster97/fhir-express-openid-connect",
   "license": "MIT",
-  "author": "Auth0 <support@auth0.com>",
+  "author": "Adam Strickland <adamstrickland97@gmail.com>",
   "main": "index.js",
   "files": [
     "lib",
@@ -72,8 +72,5 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged"
     }
-  },
-  "publishConfig": {
-    "@fhir-expresss-middleware-dep:registry": "https://gitlab.epic.com/api/v4/projects/2366/packages/npm/"
   }
 }

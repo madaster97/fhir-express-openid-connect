@@ -117,6 +117,32 @@ module.exports = function (params) {
               req.openidState
             );
           }
+          const allowed = [
+            'id_token',
+            'access_token',
+            'refresh_token',
+            'token_type',
+            'expires_at',
+          ];
+
+          if (!!config.contextKeys) {
+            Object.keys(session).forEach((key) => {
+              if (config.contextKeys.includes(key)) {
+                debug('Extracting session key %s', key);
+                session;
+              } else if (!allowed.includes(key)) {
+                debug('Deleting session key %s', key);
+                delete session[key];
+              }
+            });
+          } else {
+            Object.keys(session).forEach((key) => {
+              if (!allowed.includes(key)) {
+                debug('Deleting session key %s', key);
+                delete session[key];
+              }
+            });
+          }
 
           Object.assign(req[config.session.name], session);
           attemptSilentLogin.resumeSilentLogin(req, res);
