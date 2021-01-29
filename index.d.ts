@@ -361,7 +361,12 @@ interface ConfigParams {
    * }))
    * ``
    */
-  afterCallback?: (req: OpenidRequest, res: OpenidResponse, session: Session, decodedState: {[key: string]: any}) => Promise<Session> | Session;
+  afterCallback?: (
+    req: OpenidRequest,
+    res: OpenidResponse,
+    session: Session,
+    decodedState: { [key: string]: any }
+  ) => Promise<Session> | Session;
 
   /**
    * Array value of claims to remove from the ID token before storing the cookie session.
@@ -427,10 +432,10 @@ interface ConfigParams {
    * String value for the client's authentication method. Default is `none` when using response_type='id_token', otherwise `client_secret_basic`.
    */
   clientAuthMethod?: string;
-  
+
   /**
-   * Array of custom keys to be extracted from the tokenSet.
-   * 
+   * Array of additional keys to be extracted from the tokenSet.
+   * Populates {@link RequestContext.context context}
    */
   contextKeys?: string[];
 }
